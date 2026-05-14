@@ -1,0 +1,39 @@
+"use client";
+
+import { Badge, Card } from '@/components/ui';
+import { useStudio } from '@/components/studio-provider';
+
+export default function HistoricoPage() {
+  const { state } = useStudio();
+
+  return (
+    <div className="space-y-5">
+      <Card>
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <div className="text-xs uppercase tracking-[0.22em] text-black/40">Histórico</div>
+            <h2 className="mt-1 text-2xl font-semibold tracking-tight text-[#001F36]">Material de referencia</h2>
+          </div>
+          <Badge tone="neutral">{state.archiveItems.length} elementos</Badge>
+        </div>
+        <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {state.archiveItems.map((item) => (
+            <div key={item.id} className="rounded-3xl border border-black/8 bg-[#F5F5F7] p-4">
+              <div className="flex items-center justify-between gap-2">
+                <h3 className="text-lg font-semibold text-[#001F36]">{item.name}</h3>
+                <Badge tone={item.status === 'Archivado' ? 'neutral' : 'warning'}>{item.status}</Badge>
+              </div>
+              <p className="mt-3 text-sm leading-6 text-black/58">Origen: {item.origin}</p>
+              <p className="mt-2 text-sm leading-6 text-black/58">Motivo: {item.reason}</p>
+              <div className="mt-4 grid gap-2 text-sm text-black/60 sm:grid-cols-2">
+                <span>Archivado: {item.archivedAt}</span>
+                <span>Recuperable: {item.recoverable}</span>
+              </div>
+              <p className="mt-3 text-sm text-black/55">{item.notes}</p>
+            </div>
+          ))}
+        </div>
+      </Card>
+    </div>
+  );
+}
