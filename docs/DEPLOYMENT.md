@@ -28,8 +28,8 @@ Notas:
 
 Ejecuta estas migraciones en orden:
 
-1. `supabase/migrations/20260514_create_studio_state.sql`
-2. `supabase/migrations/20260514_create_operational_tables.sql`
+1. `supabase/migrations/20260514002000_create_studio_state.sql`
+2. `supabase/migrations/20260514003000_create_operational_tables.sql`
 
 ## 3) Auth en Supabase
 

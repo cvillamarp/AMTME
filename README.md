@@ -52,13 +52,13 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 
 ## Migracion minima de Supabase
 
-Aplica la migracion en `supabase/migrations/20260514_create_studio_state.sql` para crear la tabla inicial `studio_state`.
+Aplica la migracion en `supabase/migrations/20260514002000_create_studio_state.sql` para crear la tabla inicial `studio_state`.
 
 ## Migracion modular recomendada
 
 Para dejar el proyecto listo para evolucionar por módulos, aplica tambien:
 
-- `supabase/migrations/20260514_create_operational_tables.sql`
+- `supabase/migrations/20260514003000_create_operational_tables.sql`
 
 Este archivo crea tablas por módulo con payload JSONB + RLS por usuario autenticado.
 

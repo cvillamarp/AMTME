@@ -1,0 +1,3 @@
+-- Remote baseline migration placeholder.
+-- This file aligns local migration history with the existing remote migration version 20260514001000.
+-- No SQL operations are required here because the migration was already applied in the remote project.

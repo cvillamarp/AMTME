@@ -127,6 +127,140 @@ create table if not exists public.app_config (
   updated_at timestamptz not null default timezone('utc', now())
 );
 
+-- Ensure required columns exist for pre-existing legacy tables.
+alter table public.master_sections add column if not exists owner_id text;
+alter table public.master_sections add column if not exists workspace_key text;
+alter table public.master_sections add column if not exists payload jsonb;
+alter table public.master_sections add column if not exists created_at timestamptz;
+alter table public.master_sections add column if not exists updated_at timestamptz;
+
+alter table public.episodes add column if not exists owner_id text;
+alter table public.episodes add column if not exists workspace_key text;
+alter table public.episodes add column if not exists payload jsonb;
+alter table public.episodes add column if not exists created_at timestamptz;
+alter table public.episodes add column if not exists updated_at timestamptz;
+
+alter table public.visual_assets add column if not exists owner_id text;
+alter table public.visual_assets add column if not exists workspace_key text;
+alter table public.visual_assets add column if not exists payload jsonb;
+alter table public.visual_assets add column if not exists created_at timestamptz;
+alter table public.visual_assets add column if not exists updated_at timestamptz;
+
+alter table public.content_pieces add column if not exists owner_id text;
+alter table public.content_pieces add column if not exists workspace_key text;
+alter table public.content_pieces add column if not exists payload jsonb;
+alter table public.content_pieces add column if not exists created_at timestamptz;
+alter table public.content_pieces add column if not exists updated_at timestamptz;
+
+alter table public.metrics_monthly add column if not exists owner_id text;
+alter table public.metrics_monthly add column if not exists workspace_key text;
+alter table public.metrics_monthly add column if not exists payload jsonb;
+alter table public.metrics_monthly add column if not exists created_at timestamptz;
+alter table public.metrics_monthly add column if not exists updated_at timestamptz;
+
+alter table public.metrics_episode add column if not exists owner_id text;
+alter table public.metrics_episode add column if not exists workspace_key text;
+alter table public.metrics_episode add column if not exists payload jsonb;
+alter table public.metrics_episode add column if not exists created_at timestamptz;
+alter table public.metrics_episode add column if not exists updated_at timestamptz;
+
+alter table public.checklists add column if not exists owner_id text;
+alter table public.checklists add column if not exists workspace_key text;
+alter table public.checklists add column if not exists payload jsonb;
+alter table public.checklists add column if not exists created_at timestamptz;
+alter table public.checklists add column if not exists updated_at timestamptz;
+
+alter table public.calendar_events add column if not exists owner_id text;
+alter table public.calendar_events add column if not exists workspace_key text;
+alter table public.calendar_events add column if not exists payload jsonb;
+alter table public.calendar_events add column if not exists created_at timestamptz;
+alter table public.calendar_events add column if not exists updated_at timestamptz;
+
+alter table public.archive_items add column if not exists owner_id text;
+alter table public.archive_items add column if not exists workspace_key text;
+alter table public.archive_items add column if not exists payload jsonb;
+alter table public.archive_items add column if not exists created_at timestamptz;
+alter table public.archive_items add column if not exists updated_at timestamptz;
+
+alter table public.monetization_leads add column if not exists owner_id text;
+alter table public.monetization_leads add column if not exists workspace_key text;
+alter table public.monetization_leads add column if not exists payload jsonb;
+alter table public.monetization_leads add column if not exists created_at timestamptz;
+alter table public.monetization_leads add column if not exists updated_at timestamptz;
+
+alter table public.automation_rules add column if not exists owner_id text;
+alter table public.automation_rules add column if not exists workspace_key text;
+alter table public.automation_rules add column if not exists payload jsonb;
+alter table public.automation_rules add column if not exists created_at timestamptz;
+alter table public.automation_rules add column if not exists updated_at timestamptz;
+
+alter table public.ai_history add column if not exists owner_id text;
+alter table public.ai_history add column if not exists workspace_key text;
+alter table public.ai_history add column if not exists payload jsonb;
+alter table public.ai_history add column if not exists created_at timestamptz;
+alter table public.ai_history add column if not exists updated_at timestamptz;
+
+alter table public.app_config add column if not exists owner_id text;
+alter table public.app_config add column if not exists workspace_key text;
+alter table public.app_config add column if not exists payload jsonb;
+alter table public.app_config add column if not exists created_at timestamptz;
+alter table public.app_config add column if not exists updated_at timestamptz;
+
+alter table public.master_sections alter column workspace_key set default 'primary';
+alter table public.episodes alter column workspace_key set default 'primary';
+alter table public.visual_assets alter column workspace_key set default 'primary';
+alter table public.content_pieces alter column workspace_key set default 'primary';
+alter table public.metrics_monthly alter column workspace_key set default 'primary';
+alter table public.metrics_episode alter column workspace_key set default 'primary';
+alter table public.checklists alter column workspace_key set default 'primary';
+alter table public.calendar_events alter column workspace_key set default 'primary';
+alter table public.archive_items alter column workspace_key set default 'primary';
+alter table public.monetization_leads alter column workspace_key set default 'primary';
+alter table public.automation_rules alter column workspace_key set default 'primary';
+alter table public.ai_history alter column workspace_key set default 'primary';
+alter table public.app_config alter column workspace_key set default 'primary';
+
+alter table public.master_sections alter column payload set default '{}'::jsonb;
+alter table public.episodes alter column payload set default '{}'::jsonb;
+alter table public.visual_assets alter column payload set default '{}'::jsonb;
+alter table public.content_pieces alter column payload set default '{}'::jsonb;
+alter table public.metrics_monthly alter column payload set default '{}'::jsonb;
+alter table public.metrics_episode alter column payload set default '{}'::jsonb;
+alter table public.checklists alter column payload set default '{}'::jsonb;
+alter table public.calendar_events alter column payload set default '{}'::jsonb;
+alter table public.archive_items alter column payload set default '{}'::jsonb;
+alter table public.monetization_leads alter column payload set default '{}'::jsonb;
+alter table public.automation_rules alter column payload set default '{}'::jsonb;
+alter table public.ai_history alter column payload set default '{}'::jsonb;
+alter table public.app_config alter column payload set default '{}'::jsonb;
+
+alter table public.master_sections alter column created_at set default timezone('utc', now());
+alter table public.master_sections alter column updated_at set default timezone('utc', now());
+alter table public.episodes alter column created_at set default timezone('utc', now());
+alter table public.episodes alter column updated_at set default timezone('utc', now());
+alter table public.visual_assets alter column created_at set default timezone('utc', now());
+alter table public.visual_assets alter column updated_at set default timezone('utc', now());
+alter table public.content_pieces alter column created_at set default timezone('utc', now());
+alter table public.content_pieces alter column updated_at set default timezone('utc', now());
+alter table public.metrics_monthly alter column created_at set default timezone('utc', now());
+alter table public.metrics_monthly alter column updated_at set default timezone('utc', now());
+alter table public.metrics_episode alter column created_at set default timezone('utc', now());
+alter table public.metrics_episode alter column updated_at set default timezone('utc', now());
+alter table public.checklists alter column created_at set default timezone('utc', now());
+alter table public.checklists alter column updated_at set default timezone('utc', now());
+alter table public.calendar_events alter column created_at set default timezone('utc', now());
+alter table public.calendar_events alter column updated_at set default timezone('utc', now());
+alter table public.archive_items alter column created_at set default timezone('utc', now());
+alter table public.archive_items alter column updated_at set default timezone('utc', now());
+alter table public.monetization_leads alter column created_at set default timezone('utc', now());
+alter table public.monetization_leads alter column updated_at set default timezone('utc', now());
+alter table public.automation_rules alter column created_at set default timezone('utc', now());
+alter table public.automation_rules alter column updated_at set default timezone('utc', now());
+alter table public.ai_history alter column created_at set default timezone('utc', now());
+alter table public.ai_history alter column updated_at set default timezone('utc', now());
+alter table public.app_config alter column created_at set default timezone('utc', now());
+alter table public.app_config alter column updated_at set default timezone('utc', now());
+
 create index if not exists master_sections_owner_workspace_idx on public.master_sections(owner_id, workspace_key);
 create index if not exists episodes_owner_workspace_idx on public.episodes(owner_id, workspace_key);
 create index if not exists visual_assets_owner_workspace_idx on public.visual_assets(owner_id, workspace_key);
