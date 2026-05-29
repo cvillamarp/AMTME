@@ -2,7 +2,7 @@
 
 **Fecha:** 2026-05-29  
 **Rama PR:** `copilot/merge-amtmeultima-into-amtmeapp`  
-**PR:** #27 — [Auditoría de paridad AMTMEultima → AMTMEapp (estado parcial)](https://github.com/cvillamarp-lgtm/AMTMEapp/pull/27)  
+**PR:** #27 — [docs: parity audit AMTMEultima → AMTMEapp — corrected to PARCIAL verdict](https://github.com/cvillamarp-lgtm/AMTMEapp/pull/27)  
 **Repositorio Canónico:** `cvillamarp-lgtm/AMTMEapp`  
 **Repositorio Fuente:** `AMTMEultima` (local: `~/Downloads/AMTMEultima-main`)
 
