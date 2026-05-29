@@ -1,9 +1,34 @@
 # Validación Final: Unificación AMTMEultima → AMTMEapp
 
-**Fecha:** 2026-05-27  
-**Rama:** `chore/finalizar-unificacion-amtmeultima`  
-**Estado:** ✅ AUDITORÍA CERRADA (PARCIAL)  
-**Dictamen Canónico:** **DECISIONES FINALES TOMADAS** — 7 arquitecturas canonicales, 6 servicios legacy clasificados por riesgo
+> **⚡ ESTADO ACTUALIZADO (2026-05-29):** Validaciones técnicas pasan (lint ✅ type-check ✅ 236 tests ✅ build ✅). El dictamen de paridad sigue siendo **PARCIAL** — ver nota abajo.
+
+> ⚠️ **Nota de alcance:** `cvillamarp-lgtm/AMTMEultima` devolvió 404. No se pudo verificar paridad real contra el repositorio fuente en esta sesión. AMTMEapp puede considerarse canónico operativo por PR #24, #25 y #26, pero **no canónico por paridad total verificada**.
+
+**Fecha de Auditoría Original:** 2026-05-27  
+**Rama Original:** `chore/finalizar-unificacion-amtmeultima`  
+**Rama PR Actual:** `copilot/merge-amtmeultima-into-amtmeapp`  
+**Estado:** 🟡 DICTAMEN PARCIAL — Validaciones técnicas PASS; paridad contra AMTMEultima no verificada  
+**Dictamen Canónico:** **PARCIAL** — 7 arquitecturas canonicales, 6 servicios legacy clasificados, build/tests/lint ✅ pero fuente real no accesible
+
+---
+
+## Estado Actual (2026-05-29) — Validaciones Técnicas
+
+```bash
+$ npm run lint        ✅ PASS — 0 errores
+$ npm run type-check  ✅ PASS — 0 errores TypeScript  ← RESUELTO (antes fallaba TS6200/TS2300)
+$ npm run test        ✅ PASS — 236/236 tests         ← MEJORADO (antes 180/180)
+$ npm run build       ✅ PASS — 31 rutas compiladas   ← RESUELTO (antes fallaba por typecheck)
+$ npm run verify      ✅ PASS — cadena completa        ← RESUELTO
+```
+
+Los errores `TS6200/TS2300` en `.next/types/` (cache-life.d.ts, routes.d.ts) fueron resueltos en PRs posteriores.  
+Se añadieron 56 tests adicionales (180 → 236).  
+Email delivery (Resend) implementado y funcional.
+
+> **⚠️ Nota de paridad:** Las validaciones técnicas pasan completamente. Sin embargo, el dictamen de paridad AMTMEultima → AMTMEapp sigue siendo **PARCIAL** porque `cvillamarp-lgtm/AMTMEultima` no fue accesible (404). No se puede confirmar fusión completa contra el repositorio fuente real en esta sesión.
+
+---
 
 ---
 
