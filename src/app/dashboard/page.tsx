@@ -186,6 +186,7 @@ export default function DashboardPage() {
                     <div className="text-xs uppercase tracking-[0.2em] text-black/38">
                       Episodio {episode.episodeNumber}
                     </div>
+                    <div className="mt-1 text-base font-semibold text-[#0C1F36]">
                     <div className="mt-1 text-base font-bold text-amtme-navy">
                       {truncateText(episode.title, MAX_EPISODE_TITLE_LENGTH)}
                     </div>
